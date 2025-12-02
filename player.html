@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未知的首爾 - 播放器</title>
+    <link rel="stylesheet" href="player-style.css">    
+</head>
+<body>
+    <div class="container">
+        <h1 class="episode-title">未知的首爾</h1>
+        <div class="video-container">
+            <video id="videoPlayer" controls>
+                <source src="" type="video/mp4">
+                您的瀏覽器不支援影片播放。
+            </video>
+        </div>
+        <div class="controls">
+            <a href="index.html" class="btn">返回列表</a>
+        </div>
+    </div>
+
+    <script>
+        // 獲取URL參數中的集數
+        const urlParams = new URLSearchParams(window.location.search);
+        const episode = urlParams.get('episode');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const episodeTitle = document.querySelector('.episode-title');
+
+        // 根據集數設置影片來源
+        if (episode === '1') {
+            videoPlayer.src = 'video/未知的首爾 第一集.mp4';
+            episodeTitle.textContent = '未知的首爾 - 第一集';
+        } else if (episode === '2') {
+            // 檢查是否已登入（這裡可以加入更嚴格的驗證）
+            videoPlayer.src = 'video/未知的首爾 第二集.mp4';
+            episodeTitle.textContent = '未知的首爾 - 第二集';
+        } else if (episode === '3') {
+            videoPlayer.src = 'video/未知的首爾 第三集.mp4';
+            episodeTitle.textContent = '未知的首爾 - 第三集';
+        } else if (episode === '4') {
+            videoPlayer.src = 'video/新社花海 第一集.mp4';
+            episodeTitle.textContent = '新社花海 - 第一集';
+        } else if (episode === '5') {
+            videoPlayer.src = 'video/2023 釜山行 Vlog_Subtitles_720.mp4';
+            episodeTitle.textContent = '2023 釜山行';
+        } else if (episode === '6') {
+            videoPlayer.src = 'video/20250618～0622 We Are In SEOUL.mp4';
+            episodeTitle.textContent = '20250618～0622 We Are In SEOUL';
+        } else {
+            // 如果沒有指定集數或無效的集數，返回首頁
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
